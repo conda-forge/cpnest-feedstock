@@ -1,5 +1,5 @@
 {% set name = "cpnest" %}
-{% set version = "0.9.7" %}
+{% set version = "0.9.8" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,7 +7,7 @@ package:
 
 source:
   url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: d698aa9ebf924a6a5e54c29165b75cf67f38616179256495e02e4e75391c718f
+  sha256: 69b61eb80a6fd1399530e9e5644d7bf67054f4eadcd9a7bac641e98d01646c9c
   patches:
     - libm.patch
 
@@ -21,6 +21,7 @@ requirements:
   host:
     - cython
     - numpy
+    - scipy
     - pip
     - python
     - setuptools
@@ -41,6 +42,7 @@ test:
     - cpnest.parameter
     - cpnest.proposal
     - cpnest.sampler
+    - cpnest.logger
   commands:
     # cpnest.plot imports matplotlib.pyplot but doesn't force
     # a non-interactive backend (which is fine | DMM)
