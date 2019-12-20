@@ -7,7 +7,7 @@ package:
 
 source:
   url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: d698aa9ebf924a6a5e54c29165b75cf67f38616179256495e02e4e75391c718f
+  sha256: b0ef727bc46bfd3b96685577347b6b80fe7e318ef74377400e3cf4a532a9a62c
   patches:
     - libm.patch
 
