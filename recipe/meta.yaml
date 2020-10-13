@@ -1,16 +1,16 @@
 {% set name = "cpnest" %}
-{% set version = "0.9.9" %}
+{% set version = "0.10.1" %}
 
 package:
   name: "{{ name|lower }}"
   version: "{{ version }}"
 
 source:
-  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: 068663bc3b035c3d0afdc04e323019f197ec9f316d5be4b74ea4d3736c489261
+  git_rev: v0.10.1
+  git_url: https://github.com/johnveitch/cpnest.git
 
 build:
-  number: 1
+  number: 0
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv"
   skip: true  # [py<30 or python_impl != 'cpython']
 
@@ -24,6 +24,7 @@ requirements:
     - pip
     - python
     - setuptools
+    - setuptools_scm
   run:
     - corner
     - {{ pin_compatible('numpy') }}
