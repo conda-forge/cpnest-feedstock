@@ -1,13 +1,13 @@
 {% set name = "cpnest" %}
-{% set version = "0.9.9" %}
+{% set version = "0.10.0" %}
 
 package:
   name: "{{ name|lower }}"
   version: "{{ version }}"
 
 source:
-  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: 068663bc3b035c3d0afdc04e323019f197ec9f316d5be4b74ea4d3736c489261
+  git_rev: v0.10.0
+  git_url: https://github.com/johnveitch/cpnest.git
 
 build:
   number: 1
