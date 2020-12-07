@@ -10,7 +10,7 @@ source:
   git_url: https://github.com/johnveitch/cpnest.git
 
 build:
-  number: 1
+  number: 0
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv"
   skip: true  # [py<30 or python_impl != 'cpython']
 
