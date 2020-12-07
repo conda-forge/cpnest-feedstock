@@ -1,12 +1,12 @@
 {% set name = "cpnest" %}
-{% set version = "0.10.1" %}
+{% set version = "0.10.2" %}
 
 package:
   name: "{{ name|lower }}"
   version: "{{ version }}"
 
 source:
-  git_rev: v0.10.1
+  git_rev: v0.10.2
   git_url: https://github.com/johnveitch/cpnest.git
 
 build:
