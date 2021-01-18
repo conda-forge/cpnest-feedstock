@@ -42,7 +42,7 @@ test:
     - cpnest.parameter
     - cpnest.proposal
     - cpnest.sampler
-    - cpnest.logger
+    - cpnest.utils
   commands:
     # cpnest.plot imports matplotlib.pyplot but doesn't force
     # a non-interactive backend (which is fine | DMM)
