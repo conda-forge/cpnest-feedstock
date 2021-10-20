@@ -6,8 +6,8 @@ package:
   version: "{{ version }}"
 
 source:
-  git_rev: v{{ version }}
-  git_url: https://github.com/johnveitch/cpnest.git
+  url: https://github.com/johnveitch/cpnest/archive/v{{ version }}.tar.gz
+  sha256: 1b28ce6a43b486984a7b45bce395182d7137010f93ac889033a172a73e0cd961
 
 build:
   number: 0
