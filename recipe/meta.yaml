@@ -2,66 +2,63 @@
 {% set version = "0.11.3" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  url: https://github.com/johnveitch/cpnest/archive/v{{ version }}.tar.gz
-  sha256: 1b28ce6a43b486984a7b45bce395182d7137010f93ac889033a172a73e0cd961
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 68c5ed51df88c8164dd362bca0ce2a58953f1814aef399fb732c99bcb2b84c93
+  patches:
+    - no-requires-cython.patch
 
 build:
   number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv"
-  skip: true  # [py<30 or python_impl != 'cpython']
+  script: {{ PYTHON }} -m pip install . -vv
+  skip: true  # [python_impl != 'cpython']
 
 requirements:
   build:
+    - {{ compiler('c') }}
+    # extras for cross compiling
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - cython                                 # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
-    - {{ compiler('c') }}
   host:
     - cython
     - numpy
-    - scipy
     - pip
     - python
+    - scipy
     - setuptools
     - setuptools_scm
   run:
     - corner
+    - matplotlib-base
     - {{ pin_compatible('numpy') }}
     - python
     - scipy
     - tqdm
 
 test:
-  imports:
-    - cpnest
-    - cpnest.NestedSampling
-    - cpnest.cpnest
-    - cpnest.model
-    - cpnest.nest2pos
-    - cpnest.parameter
-    - cpnest.proposal
-    - cpnest.sampler
-    - cpnest.utils
+  requires:
+    - pip
+  source_files:
+    - tests/
   commands:
-    # cpnest.plot imports matplotlib.pyplot but doesn't force
-    # a non-interactive backend (which is fine | DMM)
-    - setx MPLBACKEND "Agg"  # [win]
-    - export MPLBACKEND="Agg"  # [unix]
-    - python -c "import cpnest.plot"
+    # check requirements
+    - python -m pip check
+    # run test suite
+    - python -m unittest discover -s tests/
 
 about:
-  home: "https://github.com/johnveitch/cpnest"
-  license: "MIT"
-  license_family: "MIT"
-  license_file: "LICENSE"
+  home: https://github.com/johnveitch/cpnest
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE
   summary: "CPNest: Parallel nested sampling"
-  doc_url: "https://johnveitch.github.io/cpnest/"
-  dev_url: "https://github.com/johnveitch/cpnest"
+  doc_url: https://johnveitch.github.io/cpnest/
+  dev_url: https://github.com/johnveitch/cpnest
 
 extra:
   recipe-maintainers:
