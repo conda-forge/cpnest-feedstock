@@ -43,13 +43,12 @@ requirements:
 test:
   requires:
     - pip
-  source_files:
-    - tests/
+  imports:
+    - cpnest
+    - cpnest.parameter
   commands:
     # check requirements
     - python -m pip check
-    # run test suite
-    - python -m unittest discover -s tests/
 
 about:
   home: https://github.com/johnveitch/cpnest
