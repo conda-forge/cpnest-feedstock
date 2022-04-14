@@ -1,5 +1,5 @@
 {% set name = "cpnest" %}
-{% set version = "0.11.3" %}
+{% set version = "0.11.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 68c5ed51df88c8164dd362bca0ce2a58953f1814aef399fb732c99bcb2b84c93
+  sha256: aecff88b08e39592cbea8928cc2ce1c69f22f695a2d7e3f32f410080873db668
   patches:
     - no-requires-cython.patch
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv
   skip: true  # [python_impl != 'cpython']
 
@@ -55,7 +55,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: "CPNest: Parallel nested sampling"
+  summary: 'CPNest: Parallel nested sampling'
   doc_url: https://johnveitch.github.io/cpnest/
   dev_url: https://github.com/johnveitch/cpnest
 
