@@ -1,5 +1,5 @@
 {% set name = "cpnest" %}
-{% set version = "0.11.4" %}
+{% set version = "0.11.5" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: aecff88b08e39592cbea8928cc2ce1c69f22f695a2d7e3f32f410080873db668
+  sha256: 2e4e1d8ceefc9bad2b1a44d954c34d4e4953e956873ed9e2851c81b3970fc0c3
   patches:
     - no-requires-cython.patch
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv
   skip: true  # [python_impl != 'cpython']
 
