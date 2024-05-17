@@ -12,13 +12,14 @@ source:
     - no-requires-cython.patch
 
 build:
-  number: 1
+  number: 2
   script: {{ PYTHON }} -m pip install . -vv
   skip: true  # [python_impl != 'cpython']
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     # extras for cross compiling
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
@@ -35,7 +36,6 @@ requirements:
   run:
     - corner
     - matplotlib-base
-    - {{ pin_compatible('numpy') }}
     - python
     - scipy
     - tqdm
