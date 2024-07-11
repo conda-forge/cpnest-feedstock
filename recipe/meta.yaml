@@ -19,7 +19,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     # extras for cross compiling
-    - python                                 # [build_platform != target_platform]
+    - python >=3.9                           # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - cython                                 # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
@@ -27,14 +27,14 @@ requirements:
     - cython
     - numpy
     - pip
-    - python
+    - python >=3.9
     - scipy
     - setuptools
     - setuptools_scm
   run:
     - corner
     - matplotlib-base
-    - python
+    - python >= 3.9
     - scipy
     - tqdm
 
