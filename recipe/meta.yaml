@@ -1,5 +1,5 @@
 {% set name = "cpnest" %}
-{% set version = "0.11.6" %}
+{% set version = "0.11.7" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: a81b71b15c642a013cad73692432f66e19384dfdd9ead9b119cf042ae6c9245a
+  sha256: 3f79ee419877c6107f36f4525596e81c853edda2e590938f98781d9e0e6ae3ae
 
 build:
-  number: 2
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
   skip: true  # [py < 39 or python_impl != 'cpython']
 
@@ -35,7 +35,6 @@ requirements:
     - numpy
     - python
     - scipy
-    - setuptools
     - tqdm
 
 test:
