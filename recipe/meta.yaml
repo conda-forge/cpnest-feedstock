@@ -10,7 +10,7 @@ source:
   sha256: a81b71b15c642a013cad73692432f66e19384dfdd9ead9b119cf042ae6c9245a
 
 build:
-  number: 1
+  number: 2
   script: {{ PYTHON }} -m pip install . -vv
   skip: true  # [py < 39 or python_impl != 'cpython']
 
@@ -35,6 +35,7 @@ requirements:
     - numpy
     - python
     - scipy
+    - setuptools
     - tqdm
 
 test:
