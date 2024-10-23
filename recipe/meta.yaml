@@ -10,7 +10,7 @@ source:
   sha256: 7efc83e63e9571b962530434de44b40b0e8c6d29da348cb59e650236ab0b01b8
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
   skip: true  # [py < 39 or python_impl != 'cpython']
 
@@ -43,10 +43,10 @@ test:
   imports:
     - cpnest
     - cpnest.parameter
-#  commands:
+  commands:
     # check requirements
-    # broken by arviz not supporting np 2.0
-    # - python -m pip check
+    - python -m pip check
+    - python -m pip show cpnest
 
 about:
   home: https://github.com/johnveitch/cpnest
