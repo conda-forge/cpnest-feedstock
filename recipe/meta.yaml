@@ -43,10 +43,10 @@ test:
   imports:
     - cpnest
     - cpnest.parameter
-#  commands:
+  commands:
     # check requirements
-    # broken by arviz not supporting np 2.0
-    # - python -m pip check
+    - python -m pip check
+    - python -m pip show cpnest
 
 about:
   home: https://github.com/johnveitch/cpnest
