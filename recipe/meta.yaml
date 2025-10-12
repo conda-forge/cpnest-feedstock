@@ -1,5 +1,5 @@
 {% set name = "cpnest" %}
-{% set version = "0.11.8" %}
+{% set version = "0.12.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: db4c45824c8fb6a36b3e9058ab915728bbab428964d88b0f53bc24f445776a9b
+  sha256: 27d10ac259c40c00195ae2a316b9edaf79c4b7e7ff638b5e47b90600ccf6e802
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv
   skip: true  # [py < 39 or python_impl != 'cpython']
 
